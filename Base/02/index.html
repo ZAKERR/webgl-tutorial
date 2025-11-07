@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style> 
+        canvas {
+            border:1px solid red;
+            /* width:400px;
+            height:400px; */
+        }
+    </style>
+
+</head>
+<body>
+    <canvas id='Rect'>    </canvas>
+    <p> Hello World </p>
+
+    <script>    
+        const canvas = document.querySelector('#Rect');
+        const ctx = canvas.getContext('2d');
+        canvas.width = 400;
+        canvas.height = 400;
+
+        const x = 10;
+        const y = 10;
+        function drawRect()
+        {
+            ctx.clearRect(0,0,canvas.width,canvas.height); // 清除画布，防止残影
+            ctx.fillRect(x, y, 100, 100); // 绘制一个矩形，默认黑色
+        }
+        
+        setInterval(() => {
+            drawRect();
+            x += 30;
+            y += 30;
+        }, 500);
+
+    </script>
+</body>
+</html>
